@@ -11,7 +11,7 @@ type DragPayload =
 const MIME = "application/x-kanban";
 
 export default function Column({ column }: { column: TColumn }) {
-  const { setBoardSelected, fetchBoardById } = useContext(AppDataContext)!;
+  const { setBoardSelected, fetchBoardById, refetch } = useContext(AppDataContext)!;
   const [adding, setAdding] = useState(false);
   const [cardTitle, setCardTitle] = useState("");
   const [cardDescription, setCardDescription] = useState("");
@@ -54,9 +54,11 @@ export default function Column({ column }: { column: TColumn }) {
 
     setAdding(false);
     setCardTitle("");
+    setCardDescription("");
   }
 
   async function updateBoard() {
+    await refetch();
     if (!column.boardId) return;
     const updatedBoard = await fetchBoardById(column.boardId);
     if (updatedBoard && setBoardSelected) {

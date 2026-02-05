@@ -10,7 +10,7 @@ export default function BoardListItem({ board }: { board: TBoard }) {
   );
 
   const cardRef = useRef<HTMLDivElement>(null);
-  const { boardSelected, setBoardSelected, fetchBoardById } =
+  const { boardSelected, setBoardSelected, fetchBoardById, refetch } =
     useContext(AppDataContext)!;
 
   const isSelected = boardSelected?.id === board.id;
@@ -43,7 +43,8 @@ export default function BoardListItem({ board }: { board: TBoard }) {
     if (!name || !board?.id) return;
 
     await ColumnService.create(board.id, { name, cards: [] });
-    const currentBoard =  await fetchBoardById(board.id);
+    await refetch();
+    const currentBoard = await fetchBoardById(board.id);
     if (currentBoard) {
       setBoardSelected(currentBoard);
     }
