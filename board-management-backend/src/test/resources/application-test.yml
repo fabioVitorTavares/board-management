@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16:///testdb
+    username: test
+    password: test
+
+  flyway:
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate

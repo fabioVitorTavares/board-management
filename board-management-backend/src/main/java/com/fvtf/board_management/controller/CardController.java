@@ -4,7 +4,6 @@ import com.fvtf.board_management.dto.CardResponse;
 import com.fvtf.board_management.dto.CreateOrUpdateTitleDescriptionRequest;
 import com.fvtf.board_management.dto.MoveCardRequest;
 import com.fvtf.board_management.service.CardService;
-import com.fvtf.board_management.service.ColumnService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

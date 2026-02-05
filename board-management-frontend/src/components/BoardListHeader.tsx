@@ -23,7 +23,7 @@ export default function BoardListHeader({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="w-full rounded-lg bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800"
+          className="w-full rounded-lg bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-blue-800"
         >
           + Novo board
         </button>
@@ -33,7 +33,7 @@ export default function BoardListHeader({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nome do board"
-            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900"
+            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:border-blue-900 focus:ring-1 focus:ring-blue-700"
             autoFocus
             onKeyDown={(e) => {
               if (e.key === "Enter") handleCreate();

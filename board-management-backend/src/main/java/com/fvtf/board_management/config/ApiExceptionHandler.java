@@ -4,6 +4,7 @@ import com.fvtf.board_management.exeptions.InvalidOperationException;
 import com.fvtf.board_management.exeptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -36,6 +37,17 @@ public class ApiExceptionHandler {
     @ExceptionHandler(InvalidOperationException.class)
     public ResponseEntity<ErrorResponse> handleInvalidOperation(
             InvalidOperationException ex
+    ) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse(
+                        HttpStatus.BAD_REQUEST.value(),
+                        ex.getMessage()
+                ));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidOperation(
+            MethodArgumentNotValidException ex
     ) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(
