@@ -13,6 +13,8 @@ O sistema permite criar **boards**, **colunas** e **cards**, além de mover card
 
 O projeto foi desenvolvido seguindo o padrão de **Arquitetura em Camadas (Controller → Service → Repository)**, com foco em separação de responsabilidades, clareza no código e facilidade de manutenção e testes.
 
+![alt text](image-1.png)
+
 ---
 
 ## 🧩 Funcionalidades Principais
